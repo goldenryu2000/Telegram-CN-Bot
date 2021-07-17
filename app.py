@@ -7,7 +7,7 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 #Create Updater
-TOKEN = "1309642095:AAGJoUnWhHvKmMVp1ddYItF3H8TQDI1abqE"
+TOKEN = "ADD TELEGRAM BOT TOKEN HERE"
 
 app = Flask(__name__)
 
@@ -26,7 +26,7 @@ def webhook():
 
 ####### DailogFlow Integration
 import os
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "client.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = "client.json" # SAVE Your Client.json file in same directory from GCP
 
 import dialogflow_v2 as dialogflow
 dialogflow_session_client = dialogflow.SessionsClient()
@@ -85,7 +85,7 @@ def reply_text(bot,update):
 		for article in articles:
 			bot.send_message(chat_id = update.message.chat_id , text =article['link'])
 	else:
-		bot.send_message(chat_id = update.message.chat_id , text =reply) #chat_id tells which caht to send message to
+		bot.send_message(chat_id = update.message.chat_id , text =reply) #chat_id tells which chat to send message to
 
 def echo_sticker(bot,update):
 	context.bot.send_sticker(chat_id = update.message.chat_id,sticker=update.message.sticker.file_id)
