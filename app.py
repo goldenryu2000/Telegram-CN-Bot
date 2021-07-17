@@ -7,8 +7,8 @@ logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s
 logger = logging.getLogger(__name__)
 
 #Create Updater
-TOKEN = "ADD TELEGRAM BOT TOKEN HERE"
-
+TOKEN = "YOUR_BOT_TOKEN" # Add your Bot token here
+ 
 app = Flask(__name__)
 
 @app.route('/') #creating a sample route
@@ -100,7 +100,7 @@ def error(update):
 
 bot = Bot(TOKEN)
 try:
-	bot.set_webhook("https://5039ef65306d.ngrok.io/"+TOKEN)
+	bot.set_webhook("YOUR_WEBHOOK_SITE"+TOKEN)
 except Exception as e:
 	print(e)
 dp = Dispatcher(bot, None) #creating a dispatcher for the updater which will dispatch the updater
